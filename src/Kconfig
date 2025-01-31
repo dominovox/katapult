@@ -14,8 +14,8 @@ choice
         bool "LPC176x (Smoothieboard)"
     config MACH_STM32
         bool "STMicroelectronics STM32"
-    config MACH_RP2040
-        bool "Raspberry Pi RP2040"
+    config MACH_RPXXXX
+        bool "Raspberry Pi RP2040/RP235x"
 endchoice
 
 source "src/lpc176x/Kconfig"
@@ -118,6 +118,9 @@ config BUILD_DEPLOYER
 # The HAVE_x options allow boards to disable support for some commands
 # if the hardware does not support the feature.
 config HAVE_CHIPID
+    bool
+    default n
+config HAVE_BOARD_CHECK_DOUBLE_RESET
     bool
     default n
 
